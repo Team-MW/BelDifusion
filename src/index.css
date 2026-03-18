@@ -1,0 +1,259 @@
+:root {
+  /* Colors - Moroccan Hype/Urban Theme */
+  --bg-color: #0d0d0d;
+  /* Pure Dark */
+  --surface: #1a1a1a;
+
+  --primary-accent: #FF5E00;
+  /* Fiery Moroccan Orange / Harissa */
+  --primary-accent-hover: #FF772D;
+
+  --majorelle: #0038FF;
+  /* Electric Majorelle Blue */
+  --saffron: #FFC700;
+  /* Acid Saffron */
+  --mint: #00E576;
+  /* Fresh Mint */
+
+  --text-primary: #FFFFFF;
+  --text-dark: #000000;
+
+  /* Fonts */
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+
+  /* Utilities */
+  --border-radius: 0px;
+  /* Brutalist, no rounded corners except buttons */
+  --border-radius-btn: 100px;
+  --transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --border-width: 3px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+/* Typography Utilities */
+.text-orange {
+  color: var(--primary-accent);
+}
+
+.text-saffron {
+  color: var(--saffron);
+}
+
+.text-majorelle {
+  color: var(--majorelle);
+}
+
+.text-mint {
+  color: var(--mint);
+}
+
+.text-outline {
+  -webkit-text-stroke: 2px var(--text-primary);
+  color: transparent;
+}
+
+.text-outline-orange {
+  -webkit-text-stroke: 2px var(--primary-accent);
+  color: transparent;
+}
+
+/* Global Layout Utilities */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5%;
+}
+
+.section {
+  padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Marquee / Scrolling Text Animation */
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  background: var(--saffron);
+  padding: 1rem 0;
+  border-top: var(--border-width) solid var(--text-dark);
+  border-bottom: var(--border-width) solid var(--text-dark);
+  display: flex;
+  white-space: nowrap;
+  position: relative;
+  z-index: 20;
+  transform: rotate(-2deg) scale(1.05);
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 15s linear infinite;
+}
+
+.marquee-text {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  color: var(--text-dark);
+  text-transform: uppercase;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Animations */
+@keyframes shake {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes float-fast {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Brutalist Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem 2.5rem;
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+  border: var(--border-width) solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+  border-radius: var(--border-radius-btn);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 4px 4px 0px var(--text-primary);
+}
+
+.btn:active {
+  transform: translate(4px, 4px);
+  box-shadow: 0px 0px 0px var(--text-primary);
+}
+
+.btn-primary {
+  background: var(--primary-accent);
+  color: var(--text-dark);
+  border-color: var(--text-dark);
+  box-shadow: 6px 6px 0px var(--text-primary);
+}
+
+.btn-primary:hover {
+  background: var(--primary-accent-hover);
+  box-shadow: 8px 8px 0px var(--saffron);
+}
+
+.btn-primary:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px var(--saffron);
+}
+
+.btn-majorelle {
+  background: var(--majorelle);
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  box-shadow: 6px 6px 0px var(--saffron);
+}
+
+.btn-majorelle:hover {
+  background: #2551FF;
+}
+
+.btn-majorelle:active {
+  transform: translate(6px, 6px);
+  box-shadow: 0px 0px 0px var(--saffron);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+  border-left: 2px solid var(--text-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-accent);
+  border: 2px solid var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--saffron);
+}
